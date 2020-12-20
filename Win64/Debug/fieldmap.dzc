@@ -1,0 +1,34 @@
+
+;you can add as many "Search" conditions as you want
+;top search string will be applied first
+;no results from top string, then do search from lower string
+;search conditions should be delimited by commas
+
+; Search =
+;
+; There MUST be search condition
+; Example:   Search=Company,city,state   
+;            Will search using 3 fields
+;
+;  To search for Linkedin Profiles
+; 
+;  Search=SearchDomain,   where SearchDomain is search string for LinkedIn
+
+Search=Company
+;Search=Company
+
+;Left side can not be changed
+;DistrictName=district name
+
+; uncomment these to find regular domains
+
+SearchName=company
+;State=state
+;Phone=phone
+;Address=address
+;City=city
+;Zip=zip
+
+
+
+

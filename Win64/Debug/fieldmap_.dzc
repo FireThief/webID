@@ -1,0 +1,17 @@
+;you can add as many "Search" conditions as you want
+;top search string will be applied first
+;no results from top string, then do search from lower string
+;search conditions should be delimited by commas
+;Search=Company, city,state
+;Search=Company,city,state
+;Search=Company, state
+Search=Company
+
+;Left side can not be changed
+;DistrictName=district name
+SearchName=company
+City=city
+State=state
+Zip=zip
+Phone=phone
+Address=address

@@ -1,0 +1,15 @@
+;first free acc from very beginning
+ApplicationID=2209eda4d58543d9af17df4249572362
+URIBASE=https://api.cognitive.microsoft.com/bing/v7.0/search
+
+;free cognitive services account from Donato
+;ApplicationID=6fce9c40136c427fb6d0b328e258ed70
+
+;paid cognitive services account from Donato
+;ApplicationID=28a1c1d426d346439d14fce65eeef9d5
+
+MaxAPICallsPerSecond=1
+MaxThreads=1
+MaxPagesPerSite=20
+MaxDepthPerSite=3
+

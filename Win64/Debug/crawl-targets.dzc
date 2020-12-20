@@ -1,0 +1,11 @@
+; crawl pages that match keywords
+;
+;
+; Order of targets = order of importance.  
+; only use most important source
+
+target=home
+target=contact
+target=about
+target=locations
+target=history

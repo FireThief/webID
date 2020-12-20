@@ -1,0 +1,169 @@
+; s-result - number of search results
+; x-count -  search results - excludes
+; cLen - Length of company name
+
+
+; os    oficial-site-score
+; cdem  company-domain-exact-match
+; isd   is-sub-domain
+; ddb   domain density bump
+; cid   company-is-domain
+; siu 	state-in-url
+; ciu	city-in-url
+; dl	direct links from response (json)
+; s	snippet score
+; ns	url-result-no-subfolder
+; posN	position score
+; scsmm	SnippetCityStateMisMatch
+; cowfn  company on website - full name match
+
+variable=phone-in-snippet,50
+variable=phone-on-homepage,100
+variable=phone-match-state,25
+
+target=company, 50
+target=city,2
+target=state,1
+target=address,3
+target=ac,1
+target=phone,3
+;======================
+
+variable=crawl-exit-threshold,100
+
+;======================
+
+variable=company-domain-exact-match,100
+variable=minimum-domain-score,5
+variable=is-sub-domain,-10
+variable=company-is-domain,200 
+variable=official-site, 50
+variable=url-result-no-subfolder,15
+
+;=====================
+variable=domain-density-group,10
+variable=domain-density-threshold,3
+variable=domain-density-bump,25
+;===new variables=====
+
+;if score < MinimumTopScore, then leave domain1 empty, shift results to domain2,3 etc
+
+variable=MinimumTopScore,100
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; URL match variables
+
+;(f3wm)       // domain match first 3 words in company name
+variable=company-first-3-words-match,150 
+
+; (f2wm)      // domain match first 2 words in company name
+variable=company-first-2-words-match,100
+
+;(f1wm)          // domain match first 1 word in company name    
+variable=company-first-1-words-match,50
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Website match variables
+
+; Phone on website (pow) the input phone number is on the website
+;{home,contact}    
+
+variable=PhoneOnWebsite,200   
+
+;cow = company-on-website (abbreviation below)
+
+; Full company name on website, cowfn (do not include modifiers if 2+ words) 
+;cowfn   don't use modifiers if 2+ words (without modifiers)
+
+variable=cow-full-name,100   
+
+; The first word in the company name has ZERO match on website, don't use modifiers 
+; example, company is Anderson Builders and "Anderson" is not found
+;
+; cow1Z
+
+variable=cow-first-word-ZeroMatch,-150 
+
+; The second word in the company name has ZERO match on website, don't use modifiers 
+; example, company is Anderson Builders and "Builders" is not found
+;
+;  cow2Z
+
+variable=cow-second-word-ZeroMatch,-50  
+
+; All On website
+; The Full company name AND city state zip are all on the website
+; aow
+
+variable=AllOnWebsite,200 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;  thinking about this stuff, not action yet
+;variable=DirectorySiteExactMatchButNoWebsite, -100
+
+directorysite=manta.com
+directorysite=yellowpages.com
+directorysite=chamberofcommerce.com
+directorysite=yelp.com
+
+;(swm)     
+variable=company-second-word-match,10
+
+;(twm)  
+variable=company-third-word-match,5       
+
+variable=pos1,50
+variable=pos2,35
+variable=pos3,25
+variable=pos4,15
+variable=pos5,5
+variable=pos6,-10
+variable=pos7,-15
+variable=pos8,-20
+variable=pos9,-25
+variable=pos10,-30
+variable=NotInTop10,-125
+
+variable=city-in-url,25
+variable=state-in-url,25
+
+; scsmm
+variable=SnippetCityStateMisMatch,-100
+
+;===web variables=====
+
+; wcsm
+variable=WebCityStateMatch,100   
+
+;wcsmm
+variable=WebCityStateMismatch,-150
+
+;wsm
+variable=WebStateMatch,25
+
+;wsmm
+variable=WebStateMismatch,-50
+
+;input
+variable=InputWebsite,100
+;=====================
+
+modifier=inc
+modifier=llc
+modifier=corp
+modifier=ltd
+modifier=systems
+modifier=co
+modifier=goods
+modifier=technology
+modifier=svc
+modifier=corporation
+modifier=company
+
+mod_factor=1,50   
+mod_factor=2,25  
+mod_factor=3,15     

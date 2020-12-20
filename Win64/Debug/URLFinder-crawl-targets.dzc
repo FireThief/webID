@@ -1,0 +1,8 @@
+; crawl pages that match keywords
+
+target=about
+target=home
+target=contact
+target=about
+target=history
+target=locations
